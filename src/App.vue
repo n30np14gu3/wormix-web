@@ -1,11 +1,11 @@
 <template>
-  <div class="page-layout">
-    <vk-header></vk-header>
-  </div>
-  <div style="padding: 10px">
-    <div class="button-blue">
-      <button>Войти</button>
+  <div id="old-vk">
+    <div style="flex: 1"></div>
+    <div style="flex: 4">
+      <vk-header></vk-header>
+      <vk-main-container></vk-main-container>
     </div>
+    <div style="flex: 1"></div>
   </div>
 </template>
 
@@ -16,12 +16,19 @@
   box-sizing: border-box;
   font-family: tahoma, arial, verdana, sans-serif, Lucida Sans;
   font-size: 11px;
-  background: white;
+  background: #fafafa;
 }
+
+#old-vk {
+  display: flex;
+  min-width: 720px;
+}
+
 .button-blue {
   padding: 5px 0;
   border-radius: 0;
 }
+
 .button-blue button{
   text-align: center;
   padding: 5px 40px;
@@ -32,12 +39,27 @@
   color: white;
   text-shadow:  0 1px 0 rgba(0, 0, 0, 0.34);
 }
+
+.button-blue button:hover {
+  background: linear-gradient(180deg, #6e93ba 10%, #51769e 100%);
+}
+
+.button-blue button:active {
+  background: linear-gradient(180deg, #51769e 100%, #698cb1 10%);
+}
+
+.button-wide button{
+  width: 100%;
+}
 </style>
+
 <script>
 import VkHeader  from "@/components/old-vk/header/VkHeader.vue";
+import VkMainContainer from "@/components/old-vk/main-container/VkMainContainer.vue";
 
 export default {
   components: {
+    VkMainContainer,
     VkHeader
 
   }
