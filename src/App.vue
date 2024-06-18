@@ -1,7 +1,7 @@
 <template>
   <div id="old-vk">
     <div style="flex: 1"></div>
-    <div style="flex: 4">
+    <div style="flex: 0 0 791px">
       <vk-header></vk-header>
       <vk-main-container></vk-main-container>
     </div>
@@ -16,7 +16,6 @@
   box-sizing: border-box;
   font-family: tahoma, arial, verdana, sans-serif, Lucida Sans;
   font-size: 11px;
-  background: #fafafa;
 }
 
 #old-vk {
@@ -25,13 +24,12 @@
 }
 
 .button-blue {
-  padding: 5px 0;
   border-radius: 0;
 }
 
 .button-blue button{
   text-align: center;
-  padding: 5px 40px;
+  padding: 5px;
   border-radius: 2px;
   border: solid 1px rgb(69, 104, 141);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
