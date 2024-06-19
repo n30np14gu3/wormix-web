@@ -2,7 +2,7 @@
   <div class="page-header">
     <a class="main-logo" href="/"></a>
     <div class="main-menu">
-      <vk-header-button title="Войти"></vk-header-button>
+      <vk-header-button title="Регистрация"></vk-header-button>
     </div>
   </div>
 </template>
@@ -10,6 +10,8 @@
 
 <style scoped>
 .page-header {
+  grid-area: 1 / 3 / 2 / 6;
+  min-width: 720px;
   display: flex;
   height: 40px;
   flex-direction: row;
