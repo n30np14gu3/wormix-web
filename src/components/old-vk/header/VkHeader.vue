@@ -2,7 +2,7 @@
   <div class="page-header">
     <a class="main-logo" href="/"></a>
     <div class="main-menu">
-      <vk-header-button title="Регистрация"></vk-header-button>
+
     </div>
   </div>
 </template>
@@ -35,9 +35,7 @@
 </style>
 
 <script>
-import VkHeaderButton from "@/components/old-vk/header/VkHeaderButton.vue";
-
 export default {
-  components: {VkHeaderButton},
+
 }
 </script>
