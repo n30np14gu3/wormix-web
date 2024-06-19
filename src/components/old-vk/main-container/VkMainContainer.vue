@@ -3,12 +3,12 @@
     <div class="page-menu">
       <form style="padding: 0 10px">
         <div class="form-input">
-          <label>Телефон или e-mail:</label>
-          <input type="text">
+          <label>E-mail:</label>
+          <input type="email" required>
         </div>
         <div class="form-input">
           <label>Пароль:</label>
-          <input type="password">
+          <input type="password" required>
         </div>
         <div class="form-input button-blue button-wide">
           <button>Войти</button>
@@ -20,7 +20,6 @@
         </div>
       </form>
     </div>
-
     <div class="page-layout">
       <div class="page-header">Добро пожаловать</div>
       <div class="page-content">
@@ -41,6 +40,35 @@
           </div>
         </form>
         <h2>В чем поможет ВКонтакте?</h2>
+        <div style="padding: 10px 4%">
+          <ul>
+            <li>Найти людей, с которыми Вы когда-либо учились, работали или отдыхали.</li>
+            <li>Узнать больше о людях, которые Вас окружают, и найти новых друзей.</li>
+            <li>Всегда оставаться в контакте с теми, кто Вам дорог.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="display: flex; width: 100%">
+    <div style="flex: 1"></div>
+    <div style="flex: 4; padding: 15px 10px">
+      <div class="page-footer">
+        <div class="footer-link">
+          <a href="/">о сайте</a>
+        </div>
+        <div class="footer-link">
+          <a href="/">о сайте</a>
+        </div>
+        <div class="footer-link">
+          <a href="/">о сайте</a>
+        </div>
+        <div class="footer-link">
+          <a href="/">о сайте</a>
+        </div>        <div class="footer-link">
+        <a href="/">о сайте</a>
+      </div>
+
       </div>
     </div>
   </div>
@@ -67,6 +95,24 @@
   flex: 4;
   border: solid 2px #e7ebef;
 }
+
+.page-footer {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+
+}
+.page-footer .footer-link {
+
+}
+
+li {
+  list-style-type: square;
+}
+li::marker {
+  color: #5c6e82;
+}
+
 
 .page-layout .page-header {
   font-weight: bold;
