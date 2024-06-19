@@ -29,7 +29,7 @@
 #old-vk {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: 40px 1fr 80px;
   grid-column-gap: 0;
   grid-row-gap: 0;
 }
