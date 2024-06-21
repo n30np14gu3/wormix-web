@@ -1,23 +1,15 @@
 <template>
   <div id="old-vk">
-    <div style="grid-area: 1 / 1 / 4 / 3"><!--Left pad--></div>
-    <div style="grid-area: 1 / 6 / 4 / 8"><!--Right pad--></div>
-    <vk-header/>
-    <div style="grid-area: 2 / 3 / 4 / 4">
-      <!--Menu place-->
-      menu
+    <div style="flex-grow: 2"><!--Left pad--></div>
+    <div style="flex-grow: 4; min-width: 640px; max-width: 900px">
+      <vk-main-container/>
     </div>
-    <div style="grid-area: 2 / 4 / 3 / 6">
-      <!--Page content-->
-      <router-view/>
-    </div>
-    <vk-footer/>
+    <div style="flex-grow: 2"><!--Right pad--></div>
   </div>
 </template>
 
 <style lang="scss">
-@import "./resources/old-vk/css/vk-colors.sass";
-
+@import "./resources/old-vk/css/vk-base";
 * {
   box-sizing: border-box;
   padding: 0;
@@ -27,11 +19,8 @@
 }
 
 #old-vk {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: 40px 1fr 80px;
-  grid-column-gap: 0;
-  grid-row-gap: 0;
+  //Тут используется flex, так как почему-то grid работает странно
+  display: flex;
 }
 
 a {
@@ -47,10 +36,10 @@ a:hover{
 
 <script>
 
-import VkHeader from "@/components/old-vk/header/VkHeader.vue";
-import VkFooter from "@/components/old-vk/VkFooter.vue";
+import VkMainContainer from "@/components/old-vk/VkMainContainer.vue";
 
 export default {
-  components: {VkFooter, VkHeader}
+  components: {VkMainContainer}
+
 }
 </script>

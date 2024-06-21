@@ -1,0 +1,35 @@
+@import "vk-colors"
+
+h1
+  color: $font-blue
+  font-size: 12px
+  font-weight: bold
+  margin-bottom: 5px
+  border-bottom: 1px solid #DAE1E8
+
+.button-blue
+  border-radius: 0
+
+.button-blue a,
+.button-blue button
+  text-decoration: none
+  text-align: center
+  padding: 5px
+  border-radius: 2px
+  border: solid 1px rgb(69, 104, 141)
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15)
+  background: linear-gradient(180deg, #698cb1 10%, #51769e 100%)
+  color: white
+  text-shadow:  0 1px 0 rgba(0, 0, 0, 0.34)
+
+.button-blue a:hover,
+.button-blue button:hover
+  background: linear-gradient(180deg, #6e93ba 10%, #51769e 100%)
+
+.button-blue a:active,
+.button-blue button:active
+  background: linear-gradient(180deg, #51769e 100%, #698cb1 10%)
+
+.button-wide a,
+.button-wide button
+  width: 100%

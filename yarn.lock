@@ -2891,7 +2891,7 @@ debug@^3.2.7:
   dependencies:
     ms "^2.1.1"
 
-debug@^4.0.1, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1, debug@^4.3.2:
+debug@^4.0.1, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1, debug@^4.3.2, debug@^4.3.4:
   version "4.3.5"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.5.tgz#e83444eceb9fedd4a1da56d671ae2446a01a6e1e"
   integrity sha512-pt0bNEmneDIvdL1Xsd9oDQ/wrQRkXDT4AUWlNZNPKvW5x/jyO9VFXkJUP07vQ2upmw5PlaITaPKc31jK13V+jg==
@@ -4384,6 +4384,13 @@ javascript-stringify@^2.0.1:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/javascript-stringify/-/javascript-stringify-2.1.0.tgz#27c76539be14d8bd128219a2d731b09337904e79"
   integrity sha512-JVAfqNPTvNq3sB/VHQJAFxN/sPgKnsKrCwyRt15zwNCdrMMJDdcEOdubuy+DuJYYdm0ox1J4uzEuYKkN+9yhVg==
+
+jenesius-vue-modal@^1.11.7:
+  version "1.11.7"
+  resolved "https://registry.yarnpkg.com/jenesius-vue-modal/-/jenesius-vue-modal-1.11.7.tgz#29d62372c28669a9fce5fcfc3fa08c297554440e"
+  integrity sha512-+yakApftCIvkGssANM0vEXJkJ4FB+F5VRCq76fEItGCp7E2pbLAmfwvLR25Rh+hjBKtOc8JU94lOeZcnboesSg==
+  dependencies:
+    debug "^4.3.4"
 
 jest-worker@^26.2.1:
   version "26.6.2"

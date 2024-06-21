@@ -10,8 +10,7 @@
 
 <style scoped>
 .page-header {
-  grid-area: 1 / 3 / 2 / 6;
-  min-width: 720px;
+  width: 100%;
   display: flex;
   height: 40px;
   flex-direction: row;
@@ -26,7 +25,8 @@
 
 .page-header .main-menu {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
+  justify-content: right;
   background: transparent;
   align-items: end;
   width: 100%;

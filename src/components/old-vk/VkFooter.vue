@@ -1,15 +1,15 @@
 <template>
   <footer>
     <div class="footer-links">
-      <a href="#">о сайте</a>
+      <router-link to="/about">о сайте</router-link>
       <a href="#">помощь</a>
       <a href="#">блог</a>
-      <a href="#">правила</a>
+      <router-link to="/terms">правила</router-link>
       <a href="#">реклама</a>
       <a href="#">разработчикам</a>
       <a href="#">вакансии</a>
     </div>
-    <div style="text-align: center">
+    <div style="text-align: center; padding-top: 5px">
       <a href="https://vkontakte.ru" target="_blank">Вконтакте</a> © 2006-2011
     </div>
   </footer>
@@ -20,6 +20,7 @@
 
 footer {
   grid-area: 3 / 4 / 4 / 6;
+  padding-top: 10px;
   display: grid;
   justify-content: center;
   align-items: center;
@@ -29,15 +30,17 @@ footer {
 .footer-links a{
   padding: 3px 8px;
   margin-right: 5px;
-}
-
-.footer-links a{
   text-decoration: none;
 }
 
 .footer-links a:hover{
   background-color: $light-hover;
 }
+
+.footer-links a:active{
+  background-color: $light-active;
+}
+
 </style>
 
 <script>

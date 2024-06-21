@@ -25,6 +25,7 @@ $box-error-bg: #ffeae6;
 
 .popup h1 {
   padding-bottom: 3px;
+  border: none !important;
 }
 
 .popup-info {
