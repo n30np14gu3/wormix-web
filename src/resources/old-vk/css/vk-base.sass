@@ -33,3 +33,27 @@ h1
 .button-wide a,
 .button-wide button
   width: 100%
+
+.home-container
+  padding: 20px 40px
+  p
+    margin: 15px 0
+  .listing
+    list-style: square
+    padding-left: 40px
+.listing
+  li
+    &::marker
+      color: $listing-dot-color
+.image-gallery
+  padding-top: 20px
+  display: flex
+  justify-content: center
+  flex-direction: row
+  column-gap: 40px
+.image
+  flex: 0 0 132px
+  cursor: pointer
+  img
+    width: 132px
+    height: 100px

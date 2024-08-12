@@ -1,10 +1,10 @@
 <template>
   <div id="old-vk">
-    <div style="flex-grow: 2"><!--Left pad--></div>
-    <div style="flex-grow: 4; min-width: 640px; max-width: 900px">
+    <div :class="this.$route.name === 'wormix' ? 'left-pad-full': 'left-pad'"><!--Left pad--></div>
+    <div :class="this.$route.name === 'wormix' ? 'base-container-full': 'base-container'">
       <vk-main-container/>
     </div>
-    <div style="flex-grow: 2"><!--Right pad--></div>
+    <div :class="this.$route.name === 'wormix' ? 'right-pad-full': 'right-pad'"><!--Right pad--></div>
   </div>
 </template>
 
@@ -31,6 +31,28 @@ a {
 
 a:hover{
   text-decoration: underline;
+}
+.left-pad{
+  flex-grow: 2
+}
+.right-pad{
+  flex-grow: 2
+}
+.base-container{
+  flex-grow: 4;
+  min-width: 640px;
+  max-width: 800px
+}
+
+.left-pad-full{
+  display: none;
+}
+.right-pad-full{
+  display: none;
+}
+.base-container-full{
+  flex-grow: 1;
+  min-width: 100%;
 }
 </style>
 

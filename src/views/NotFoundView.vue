@@ -8,9 +8,6 @@
 import VkPopup from "@/components/old-vk/VkPopup.vue";
 
 export default {
-  components: {VkPopup},
-  beforeMount() {
-    document.title = "Not Found";
-  }
+  components: {VkPopup}
 }
 </script>
