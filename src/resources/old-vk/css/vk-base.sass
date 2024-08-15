@@ -1,0 +1,72 @@
+@import "vk-colors"
+
+h1
+  color: $font-blue
+  font-size: 12px
+  font-weight: bold
+  margin-bottom: 5px
+  border-bottom: 1px solid #DAE1E8
+
+.button-blue
+  border-radius: 0
+
+.button-blue a,
+.button-blue button,
+a.button-blue,
+button.button-blue
+  text-decoration: none
+  text-align: center
+  padding: 5px
+  border-radius: 2px
+  border: solid 1px rgb(69, 104, 141)
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15)
+  background: linear-gradient(180deg, #698cb1 10%, #51769e 100%)
+  color: white
+  text-shadow:  0 1px 0 rgba(0, 0, 0, 0.34)
+
+.button-blue a:hover,
+.button-blue button:hover,
+a.button-wide:hover,
+button.button-wide:hover
+  background: linear-gradient(180deg, #6e93ba 10%, #51769e 100%)
+
+.button-blue a:active,
+.button-blue button:active,
+a.button-wide:active,
+button.button-wide:active
+  background: linear-gradient(180deg, #51769e 100%, #698cb1 10%)
+
+.button-wide a,
+.button-wide button,
+a.button-wide,
+button.button-wide
+  width: 100%
+
+.home-container
+  padding: 20px 40px
+  p
+    margin: 15px 0
+
+.image-gallery
+  padding-top: 20px
+  display: flex
+  justify-content: center
+  flex-direction: row
+  column-gap: 40px
+
+.image
+  flex: 0 0 132px
+  cursor: pointer
+  img
+    width: 132px
+    height: 100px
+
+.listing
+  list-style: square
+  padding-left: 40px
+  li
+    &::marker
+      color: $listing-dot-color
+
+.container
+  padding: 20px 10px
