@@ -25,7 +25,8 @@ export default {
       this.auth_token = response.data.auth_key
       this.user_id = localStorage.getItem("USER_ID")
       this.api_url =
-          `?api_id=2`
+          process.env.VUE_GAME_URL
+          +`?api_id=2`
           +`&api_settings=8479`
           +`&viewer_type=2`
           +`&sid=smtp`

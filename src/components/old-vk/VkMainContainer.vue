@@ -4,12 +4,12 @@
     <div class="page-container">
       <!--Page container-->
 
-      <div style="grid-area: 1 / 1 / 3 / 2; margin-right: 20px">
+      <div style="grid-area: 1 / 1 / 3 / 2; margin-right: 20px" :class="this.$route.name === 'wormix' ? 'left-menu-game': ''">
         <!--Left menu-->
         <vk-left-menu/>
       </div>
 
-      <div style="grid-area: 1 / 2 / 2 / 6">
+      <div style="grid-area: 1 / 2 / 2 / 6" :class="this.$route.name === 'wormix' ? 'game-container': ''">
         <!--Page content-->
         <router-view/>
       </div>
@@ -42,6 +42,13 @@
   grid-column-gap: 0;
   grid-row-gap: 0;
 }
+.left-menu-game {
+  display: none;
+}
+.game-container {
+  grid-area: 1 / 6 / 1 / 1 !important;
+}
+
 </style>
 
 <script>

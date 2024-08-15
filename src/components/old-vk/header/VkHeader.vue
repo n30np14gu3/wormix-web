@@ -1,8 +1,8 @@
 <template>
   <div class="page-header">
-    <a class="main-logo" href="/"></a>
+    <router-link class="main-logo" to="/"></router-link>
     <div class="main-menu">
-
+      <vk-header-button title="Выход" @click="doLogout()"  v-if="checkLogin()"></vk-header-button>
     </div>
   </div>
 </template>
@@ -35,7 +35,18 @@
 </style>
 
 <script>
-export default {
+import VkHeaderButton from "@/components/old-vk/header/VkHeaderButton.vue";
 
+export default {
+  components: {VkHeaderButton},
+  methods: {
+    doLogout(){
+      localStorage.clear();
+      location.href = "/";
+    },
+    checkLogin(){
+      return localStorage.getItem('USER_ID') !== null
+    }
+  }
 }
 </script>

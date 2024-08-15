@@ -44,7 +44,7 @@ export default {
         menu_links: [
           {
             id: 1,
-            url: '/profile',
+            url: '/',
             title: 'Моя страница'
           },
           {
@@ -56,11 +56,6 @@ export default {
             id: 3,
             url: '/wormix',
             title: 'Вормикс'
-          },
-          {
-            id: 4,
-            url: '/logout',
-            title: 'Выход'
           }
         ]
       }

@@ -9,6 +9,7 @@ import AboutView from "@/views/AboutView.vue";
 import ProfileView from "@/views/ProfileView.vue";
 import RegisterView from "@/views/RegisterView.vue";
 import LogoutView from "@/views/LogoutView.vue";
+import SettingsView from "@/views/SettingsView.vue";
 
 const routes = [
     {
@@ -46,11 +47,16 @@ const routes = [
         name: 'profile_default',
         component: ProfileView,
     },
-    // {
-    //     path: '/profile/:profile_id',
-    //     name: 'profile',
-    //     component: ProfileView,
-    // },
+    {
+        path: '/settings',
+        name: 'settings',
+        component: SettingsView
+    },
+    {
+        path: '/profile/:profile_id',
+        name: 'profile',
+        component: ProfileView,
+    },
     {
         path: '/logout',
         name: 'logout',

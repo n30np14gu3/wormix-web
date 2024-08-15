@@ -9,7 +9,7 @@
 </template>
 
 <style lang="scss">
-@import "./resources/old-vk/css/vk-base";
+@import "./resources/old-vk/css/vk-base.sass";
 * {
   box-sizing: border-box;
   padding: 0;

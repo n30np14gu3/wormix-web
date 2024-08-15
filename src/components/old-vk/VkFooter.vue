@@ -6,11 +6,12 @@
       <a href="#">блог</a>
       <router-link to="/terms">правила</router-link>
       <a href="#">реклама</a>
-      <a href="#">разработчикам</a>
+      <a href="https://github.com/n30np14gu3" target="_blank">разработчикам</a>
       <a href="#">вакансии</a>
     </div>
     <div style="text-align: center; padding-top: 5px">
-      <a href="https://vkontakte.ru" target="_blank">Вконтакте</a> © 2006-2011
+      <a href="https://vkontakte.ru" target="_blank" style="padding-bottom: 5px">Вконтакте</a> © 2006-2011 <br>
+      <a href="https://github.com/n30np14gu3" target="_blank">ShockByte</a> © {{ current_year }}
     </div>
   </footer>
 </template>
@@ -45,6 +46,13 @@ footer {
 
 <script>
 export default {
-
+  data() {
+    return {
+      current_year: ""
+    }
+  },
+  created() {
+    this.current_year = new Date().getFullYear()
+  }
 }
 </script>
