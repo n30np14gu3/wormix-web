@@ -4,18 +4,18 @@
     <!--User profile settings-->
     <div class="container">
       <h1>Настройки профиля</h1>
-      <form>
+      <form @submit="saveUserProfile">
         <label>Рубины</label>
-        <input type="number" min="0" :value="user.user_profile.real_money">
+        <input type="number" min="0" v-model="user.user_profile.real_money">
 
         <label>Фузы</label>
-        <input type="number" min="0" :value="user.user_profile.money">
+        <input type="number" min="0" v-model="user.user_profile.money">
 
         <label>Скорость реакции</label>
-        <input type="number" min="0" :value="user.user_profile.reaction_rate">
+        <input type="number" min="0" v-model="user.user_profile.reaction_rate">
 
         <label>Рейтинг</label>
-        <input type="number" min="0" :value="user.user_profile.rating">
+        <input type="number" min="0" v-model="user.user_profile.rating">
 
         <button class="button-blue" type="submit">Сохранить</button>
       </form>
@@ -24,18 +24,18 @@
     <!-- Worm settings -->
     <div class="container">
       <h1>Настройки персонажа</h1>
-      <form>
+      <form @submit="saveWormData">
         <label>Уровень</label>
-        <input type="number" min="0" max="30" :value="user.worm_data.level">
+        <input type="number" min="0" max="30" v-model="user.worm_data.level">
 
         <label>Атака</label>
-        <input type="number" min="0" max="60" :value="user.worm_data.attack">
+        <input type="number" min="0" max="60" v-model="user.worm_data.attack">
 
         <label>Броня</label>
-        <input type="number" min="0" maxlength="" :value="user.worm_data.armor">
+        <input type="number" min="0" maxlength="" v-model="user.worm_data.armor">
 
         <label>Расса</label>
-        <select :value="user.worm_data.race">
+        <select v-model="user.worm_data.race">
           <option value="0">Червяк</option>
           <option value="2">Боксер</option>
           <option value="3">Демон</option>
@@ -53,10 +53,10 @@
       <h1>Настройки арены</h1>
       <form>
         <label>Количество миссий</label>
-        <input type="number" min="0" :value="user.battle_info.battles_count">
+        <input type="number" min="0" v-model="user.battle_info.battles_count">
 
         <label>Текущая миссия</label>
-        <input type="text" min="0" :value="user.battle_info.mission_id">
+        <input type="text" min="0" v-model="user.battle_info.mission_id">
         <button class="button-blue" type="submit">Сохранить</button>
       </form>
     </div>
@@ -64,15 +64,15 @@
     <!-- User settings -->
     <div class="container">
       <h1>Настройки пользователя</h1>
-      <form>
+      <form @submit="saveAccountInfo">
         <label>Логин</label>
-        <input type="text" :value="user.login">
+        <input type="text" v-model="user.login" name="login">
 
         <label>Пароль</label>
-        <input type="password">
+        <input type="password" v-model="password">
 
         <label>Повторите пароль</label>
-        <input type="password">
+        <input type="password" v-model="password_confirmation">
         <button class="button-blue" type="submit">Сохранить</button>
       </form>
     </div>
@@ -82,10 +82,10 @@
       <h1>Социальные настройки</h1>
       <form>
         <label>Фамилия</label>
-        <input type="text" :value="user.social_data.last_name">
+        <input type="text" v-model="user.social_data.last_name">
 
         <label>Имя</label>
-        <input type="text" :value="user.social_data.first_name">
+        <input type="text" v-model="user.social_data.first_name">
         <button class="button-blue" type="submit">Сохранить</button>
       </form>
     </div>
@@ -93,9 +93,9 @@
     <!-- Avatar settings -->
     <div class="container">
       <h1>Смена изображения</h1>
-      <form>
+      <form @submit="updateProfilePhoto">
         <label>Аватар</label>
-        <input type="file" accept="image/jpeg,image/png">
+        <input type="file" accept="image/jpeg,image/png" ref="file" v-on:change="handleFileUpload()">
         <button class="button-blue" type="submit">Сохранить</button>
       </form>
     </div>
@@ -144,7 +144,6 @@ form .button-blue {
 <script>
 import VkPage from "@/components/old-vk/VkPage.vue";
 import axios from "axios";
-import router from "@/routes";
 
 export default {
   components: {VkPage},
@@ -174,7 +173,10 @@ export default {
           battles_count: 0,
           mission_id: 0
         }
-      }
+      },
+      photo: null,
+      password: null,
+      password_confirmation: null
     }
   },
   created() {
@@ -182,22 +184,93 @@ export default {
       this.user = response.data.data
       this.user.worm_data.race = this.getRace(this.user.worm_data.hat)
     }).catch( error => {
-      console.log(error.response)
-      if(error.response.status === 401 || error.response.status === 403){
-        localStorage.clear()
-        router.push('/login')
-      }
+      this.handleError(error)
     })
   },
   methods: {
+    saveAccountInfo(e){
+      e.preventDefault()
+      axios.post('account', {user: {
+          login: this.user.login,
+          password: this.password,
+          password_confirmation: this.password_confirmation
+        }}).then(response => {
+        alert("OK")
+      }).catch(error =>{
+        this.handleError(error)
+      });
+      this.password_confirmation = null
+      this.password = null
+    },
     saveSocialData(e){
       e.preventDefault()
+      axios.post('account', {social_data: this.user.social_data}).then(response => {
+        alert("OK")
+      }).catch(error =>{
+        this.handleError(error)
+      });
+    },
+    saveWormData(e){
+      e.preventDefault()
+      axios.post('account', {worm_data: this.user.worm_data}).then(response => {
+        alert("OK")
+        this.user.worm_data = response.data.worm_data
+        this.user.worm_data.race = this.getRace(this.user.worm_data.hat)
+      }).catch(error =>{
+        this.handleError(error)
+      });
+    },
+    saveUserProfile(e){
+      e.preventDefault()
+      axios.post('account', {user_profile: this.user.user_profile}).then(response => {
+        alert("OK")
+      }).catch(error =>{
+        this.handleError(error)
+      });
+    },
+    updateProfilePhoto(e){
+      e.preventDefault()
+      if(this.photo === null){
+        alert("Фото не выбрано")
+        return;
+      }
+      let formData = new FormData();
+      formData.append("photo", this.photo);
+      this.$refs.file.value = null;
+      axios.post('account/update_photo',
+          formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          }
+      ).then(response => {
+        alert("Фото успешно загружено")
+        this.photo = null;
+      }).catch(error =>{
+            this.handleError(error)
+      });
     },
     getRace(hat){
       if(hat < 50)
         return hat;
 
       return (hat - 1000) / 500;
+    },
+    handleFileUpload(){
+      this.photo = this.$refs.file.files[0]
+    },
+    handleError(error){
+      this.photo = null
+      if(error.response.status === 401 || error.response.status === 403){
+        localStorage.clear()
+        location.href = "/";
+      }
+      if(error.response.status === 422){
+        alert(error.response.data.message)
+      }
+      if(error.response.status === 500){
+        alert("Unknown server error")
+      }
     }
   }
 }

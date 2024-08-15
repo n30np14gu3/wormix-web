@@ -10,7 +10,7 @@
             <div class="main-photo">
               <img :src="photo_url + 'photos/users/' + user.social_data.photo" alt="" style="width: 100%">
             </div>
-            <div class="photo-pad" style="padding-top: 5px;">
+            <div class="photo-pad" style="padding-top: 5px;" v-if="isMyAccount()">
               <router-link to="/settings" class="button-blue button-wide" style="display: block; text-decoration: none">Изменить фото</router-link>
             </div>
           </div>
@@ -198,6 +198,9 @@ export default {
         return hat;
 
       return (hat - 1000) / 500;
+    },
+    isMyAccount(){
+      return this.router_path === undefined || this.router_path === this.user.id
     }
   },
   created() {
