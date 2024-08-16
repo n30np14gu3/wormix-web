@@ -51,12 +51,9 @@
     <!-- User battle settings -->
     <div class="container">
       <h1>Настройки арены</h1>
-      <form>
+      <form @submit="saveBattleInfo">
         <label>Количество миссий</label>
         <input type="number" min="0" v-model="user.battle_info.battles_count">
-
-        <label>Текущая миссия</label>
-        <input type="text" min="0" v-model="user.battle_info.mission_id">
         <button class="button-blue" type="submit">Сохранить</button>
       </form>
     </div>
@@ -202,6 +199,7 @@ export default {
       this.password_confirmation = null
       this.password = null
     },
+
     saveSocialData(e){
       e.preventDefault()
       axios.post('account', {social_data: this.user.social_data}).then(response => {
@@ -210,6 +208,7 @@ export default {
         this.handleError(error)
       });
     },
+
     saveWormData(e){
       e.preventDefault()
       axios.post('account', {worm_data: this.user.worm_data}).then(response => {
@@ -220,6 +219,7 @@ export default {
         this.handleError(error)
       });
     },
+
     saveUserProfile(e){
       e.preventDefault()
       axios.post('account', {user_profile: this.user.user_profile}).then(response => {
@@ -228,6 +228,16 @@ export default {
         this.handleError(error)
       });
     },
+
+    saveBattleInfo(e){
+      e.preventDefault()
+      axios.post('account', {battle_info: this.user.battle_info}).then(response => {
+        alert("OK")
+      }).catch(error =>{
+        this.handleError(error)
+      });
+    },
+
     updateProfilePhoto(e){
       e.preventDefault()
       if(this.photo === null){
@@ -250,15 +260,18 @@ export default {
             this.handleError(error)
       });
     },
+
     getRace(hat){
       if(hat < 50)
         return hat;
 
-      return (hat - 1000) / 500;
+      return Math.floor((hat - 1000) / 500);
     },
+
     handleFileUpload(){
       this.photo = this.$refs.file.files[0]
     },
+
     handleError(error){
       this.photo = null
       if(error.response.status === 401 || error.response.status === 403){
