@@ -197,7 +197,7 @@ export default {
       if(hat < 50)
         return hat;
 
-      return (hat - 1000) / 500;
+      return Math.floor((hat - 1000) / 500);
     },
     isMyAccount(){
       return this.router_path === undefined || this.router_path === this.user.id
