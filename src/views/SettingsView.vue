@@ -32,7 +32,7 @@
         <input type="number" min="0" max="60" v-model="user.worm_data.attack">
 
         <label>Броня</label>
-        <input type="number" min="0" maxlength="" v-model="user.worm_data.armor">
+        <input type="number" min="0" max="60" v-model="user.worm_data.armor">
 
         <label>Расса</label>
         <select v-model="user.worm_data.race">
